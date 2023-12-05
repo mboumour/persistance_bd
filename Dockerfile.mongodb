@@ -1,0 +1,14 @@
+# Utilisez une image Python officielle
+FROM python:3.8-slim
+
+# Répertoire de travail
+WORKDIR /app
+
+# Copiez le script Python et les dépendances
+COPY ./src/2_rabbit_to_db.py /app/
+
+# Installez les dépendances
+RUN pip install pika pymongo
+
+# Commande pour exécuter le script
+CMD ["python", "2_rabbit_to_db.py"]
